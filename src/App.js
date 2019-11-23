@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route, } from 'react-router-dom';
+import Start_game from './components/Start_game'
+import NoMatch from './components/NoMatch'
+import { Container } from 'semantic-ui-react';
+import Game from './components/Game'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container style={{height: "1000px"}}>
+      <Switch>
+        <Route exact path="/" component={Start_game} />
+        <Route exact path="/game" component={Game} />
+        <Route component={NoMatch} />
+      </Switch>
+    </Container>
   );
 }
 
